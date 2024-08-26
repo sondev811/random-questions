@@ -1,6 +1,6 @@
 .App {
   font-family: sans-serif;
-  text-align: center;
+  text-align: left;
 }
 h3 {
   cursor: pointer;
@@ -8,6 +8,12 @@ h3 {
 .answer {
   text-align: left;
   display: none;
+}
+.answer p {
+  text-align: left;
+}
+.answer pre {
+  color: #fff;
 }
 .active {
   display: block;

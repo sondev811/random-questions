@@ -26,7 +26,9 @@ const Random = (props) => {
         <p>Đáp án:</p>
         {openAnswer &&
           question?.answer?.map((ans, index) => {
-            return <p key={index}>{ans}</p>;
+            return (
+                ans.isPre ? <pre style={{ whiteSpace: 'break-spaces', color: "#fff"}} key={index}>{ans.data}</pre> : <p key={index}>{ans.data}</p>
+            );
           })}
       </div>
       <button onClick={getQuestion}>Random</button>

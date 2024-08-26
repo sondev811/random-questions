@@ -1,0 +1,14 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+h3 {
+  cursor: pointer;
+}
+.answer {
+  text-align: left;
+  display: none;
+}
+.active {
+  display: block;
+}

@@ -300,7 +300,7 @@ Object.values(obj) => [value]`, isPre: true},
   },
   {
     question: "Anonymous function là gì?",
-    answer: [{ data: "Là hàm ẩn danh được sinh ra vào thời điểm chạy của ctrinh", isPre: false}],
+    answer: [{ data: "Là hàm ẩn danh được sinh ra vào thời điểm chạy của ctrinh. Thường được sử dụng như là một đối số truyền vào cho một hàm khác.", isPre: false}],
   },
   {
     question: "HOF là gì?",

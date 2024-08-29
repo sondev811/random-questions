@@ -146,7 +146,58 @@ export const questionList = [
     question: "React query là gì?",
     answer: [
     { data: "React query là 1 thư viện giúp viết react tốt hơn. nó xử lí phần dữ liệu cần lưu vào bộ nhớ đệm, trạng thái loading và call lại api", isPre: false},
-    ],
+    { data: "Caching giúp cho app chạy nhanh và mượt mà hơn. Ví dụ bạn gọi API /posts để lấy tất cả bài posts khi bắt đầu load trang lên, sau đó click vào để xem chi tiết từng bài post (detail page). Khi bạn nhấn nút Back để trở lại trang posts thì mặc định bạn sẽ thấy data đã có sẵn từ cache và người dùng sẽ thấy data ngay lập tức (không cần chờ gọi API như sử dụng axios hay fetch API)", isPre: false},
+    { data: "Các lợi ích chính mà React-Query mang lại:", isPre: false},
+    { data: "Window focus refetching: khi người dùng rời khỏi tab ứng dụng của bạn, React Query sẽ đánh dấu dữ liệu là cũ và tìm hiểu lại dữ liệu đó khi người đó quay lại.", isPre: false},
+    { data: "Request retry: bạn có thể đặt số lần thử call lại api khi bị lỗi", isPre: false},
+    { data: "Prefetching: có thể tìm nạp trước truy vấn. React Query sẽ cập nhật nó trong nền.", isPre: false},
+    { data: "react query bao gồm useQuery, useMutate hook, useQuery nhận vào 3 tham số, queryKey , queryFn và các option như retry, staleTime, cacheTime...", isPre: false},
+    { data: "queryKey: là 1 key định danh cho query, react query sẽ quản lí việc caching dựa trên query key này. queryKey: là một mảng với nhiều key có thể là string, object, number. Khi thành phần trong key thay đổi thì sẽ tự động trigger queryFn ", isPre: false},
+    { data: "queryFn: là 1 hàm bất kỳ trả về 1 promise, có thể là resolve hoặc reject", isPre: false},
+    { data: "Các option: ", isPre: false},
+    { data: "staleTime: là thời gian mà data được cho là đã cũ. Sau khi fetch data thì sau 1 thời gian thì mà chúng ta quy định thì data sẽ tự cũ. Mặc định là 0 miliseconds", isPre: false},
+    { data: "cacheTime: là thời gian mà data sẽ bị xoá ra khỏi bộ nhớ đệm. Data có thể là đã cũ nhưng vẫn chưa bị xoá khỏi bộ nhớ đệm vì staleTime nhỏ hơn cacheTime, và thường thì staleTime sẽ được set nhỏ hơn cacheTime", isPre: false},
+    { data: "retry: thử fetch lại với số lần", isPre: false},
+    { data: "useQuery trả về một object bao gồm data, isLoading, isError, isSuccess, error, status(cho thông tin data có hay không), fetchStatus(cho thông tin queryFn có đang chạy hay không)", isPre: false},
+    { data: "Cơ chế caching: ", isPre: false},
+    { data: "Trường hợp data đã bị xoá khỏi cache(quá thời gian của cacheTime): thì khi gọi lại query thì cũng sẽ fetch lại api kể cả dữ liệu chưa bị cũ", isPre: false},
+    { data: "Trường hợp data chưa bị xoá khỏi cache", isPre: false}, 
+    { data: "Khi chưa cũ(chưa quá thời gian staleTime) thì react query sẽ trả về data cached", isPre: false}, 
+    { data: "Khi dữ liệu đã cũ(quá thời gian staleTime) thì react query sẽ trả về data cached và đồng thời fetch api ngầm. sau khi fetch xong nó sẽ update lại data cached để trả về data mới", isPre: false}, 
+    { data: "Vòng đời của caching:", isPre: false},
+    { data: "Query Instance có hay không cache data", isPre: false},
+    { data: `Query Instance: useQuery({
+  queryKey: ['users', page],
+  queryFn: () => getAllUser(page),
+  retry: 2,
+  staleTime: 1000 * 60 * 1, // 1 minutes
+  cacheTime: 1000 * 60 * 5, // 5 minutes
+}) `, isPre: true},
+    { data: "Fetch ngầm(background fetching)", isPre: false},
+    { data: "Các inactive query. Khi một key inactive thì caching time sẽ bắt đầu đếm thời gian", isPre: false},
+    { data: "Xoá cache ra khỏi bộ nhớ(garbage collection)", isPre: false},
+    { data: "Sử dụng useMutation để cập nhật lại giá trị của data", isPre: false},
+    { data: `const { mutate: mutateCreate, isLoadingCreate } = useMutation({
+  mutationFn: (data) => createUser(data)
+});
+
+const { mutate: mutateUpdate } = useMutation({
+  mutationFn: ({ id, name }) => updateUser(id, { name })
+})`, isPre: true},
+    { data: `<button onClick={() => {
+  mutateCreate({ name: inputRef.current.value }, {
+    onError: (error) => {
+      console.log(error, 'error');
+    },
+    onSuccess: (data) => {
+      console.log(data, 'success');
+      queryClient.invalidateQueries(['users', page]); // thông báo dữ liệu cho stealed
+    }
+  });
+  // action after call api
+  // mutate nhận một promise và là 1 bđb nhưng không return promise nên nếu có hành động chờ call api trả về kq thì phải viết trong onSuccess or onError
+}}>Create user</button>`, isPre: true},
+  ],
   },
   {
     question: "HOC là gì?",
@@ -156,7 +207,7 @@ export const questionList = [
   },
   {
     question: "Các cách tiếp cận style trong react?",
-    answer: ["inline style, styled component, css module, sass/scss"],
+    answer: [{data: "inline style, styled component, css module, sass/scss", isPre: false}],
   },
   {
     question: "Keys trong react là gì?",
@@ -199,10 +250,10 @@ let a = 1;
 `, isPre: true},
     { data: "trong cùng một scope thì var có thể khai báo lại, let và const thì không thể khai báo lại(nhưng ngoài phạm vị thì được, vd dưới)", isPre: false},
     { data: `var greeting = 'hi';
-  if (true) {
-    var greeting = 'hello';
-  }
-  console.log(greeting) // hello: bị cập nhật lại
+if (true) {
+  var greeting = 'hello';
+}
+console.log(greeting) // hello: bị cập nhật lại
 `, isPre: true},
     { data: `let greeting = 'hi';
 if (true) {

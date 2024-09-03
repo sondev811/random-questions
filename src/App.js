@@ -136,10 +136,18 @@ export const questionList = [
     ],
   },
   {
-    question: "Oneway binding là gì? Khác gì với twoway biding",
+    question: "Giới thiệu bản thân",
     answer: [
-    { data: "1wb: là khi dữ liệu bị thay đổi ở model thì state ở trong component sẽ thay đổi tương ứng. Và không có chiều ngược lại có nghĩa là khi chúng ta thay đổi state đó ở component thì giá trị ở model sẽ không thay đổi", isPre: false},
-    { data: "2wb: là thay dổi ở model thì state ở component thay đổi và ngược lại", isPre: false},
+    { data: "Em chào các anh chị. Lời đầu tiên em xin cảm ơn các anh chị cùng Quý công ty đã tổ chức buổi phỏng vấn này, để hôm nay em có thể thể hiện được năng lực của bản thân cũng như nguyện vọng ứng tuyển vào vị trí Frondend developer.", isPre: false},
+    { data: "Như em đã viết ở trong CV. sau đâu e xin giới thiệu ngắn gọn về bản thân mình như sau:", isPre: false},
+    { data: "E tên là ĐTS, 28 tuổi, tốt nghiệp trường đhgtvt tphcm chuyên nghành cntt.", isPre: false},
+    { data: "Em thành thạo các công cụ và công nghệ frontend như HTML, CSS, JavaScript, thư viện phổ biến như ReactJS, framework angular. Bên cạnh đó, em cũng có kinh nghiệm sử dụng Git để quản lý mã nguồn và làm việc nhóm hiệu quả. Em còn quen thuộc với Jira để quản lý dự án, theo dõi tiến độ công việc và đảm bảo dự án được hoàn thành đúng thời hạn.", isPre: false},
+    { data: "Cho đến nay e đã có hơn 1 năm kinh nghiệm ở vị trí frontend developer tại cty TMA solution và hơn 3 năm kinh nghiệm làm freelance ở vị trí này.", isPre: false},
+    { data: "Trong quá trình làm việc tại TMA Solutions, em đã có cơ hội làm việc với các thành viên trong team, hợp tác chặt chẽ với backend developers, UI/UX designers, và testers để hoàn thành dự án theo yêu cầu khách hàng."},
+    { data: "Về điểm mạnh thì đã từng làm qua môi trường làm việc nhóm ở công ty cũng như là làm freelancer nên e có là khả năng xử lý công việc độc lập mà không cần có quá nhiều sự hướng dẫn từ đồng nghiệp, cũng cũng như khả năng làm việc nhóm cần giao tiếp nhiều với đồng nghiệp, với khách hàng.", isPre: false},
+    { data: "Em luôn sẵn sàng học hỏi các công nghệ mới và cập nhật xu hướng trong lĩnh vực phát triển phần mềm. Em tin rằng việc học hỏi không ngừng là chìa khóa để cải thiện bản thân và đóng góp tốt hơn cho công ty.", isPre: false},
+    { data: "Về điểm yếu em nhận thấy mình còn chưa tự tin khi thuyết trình trước đám đông nhưng e vẫn đang thường xuyên thực hành để cải thiện khả năng này. Em tin rằng mình đang tiến bộ và sẽ sớm khắc phục được điểm yếu này.", isPre: false},
+    { data: "Với niềm đam mê trong việc phát triển các sản phẩm chất lượng cao, em mong muốn có cơ hội được làm việc và phát triển lâu dài tại Quý công ty, nơi em có thể tiếp tục phát huy những kinh nghiệm đã có và học hỏi thêm nhiều kỹ năng mới. Em xin cảm ơn ạ.", isPre: false}
     ],
   },
   {

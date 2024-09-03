@@ -25,8 +25,8 @@ export const questionList = [
   {
     question: "So sánh Props vs state",
     answer: [
-    { data: "Props: là 1 object được truyền vào trong 1 component, và trong component đó props không thể bị thay đổi. Được sd để hiển thị hoặc tính toán", isPre: false},
-    { data: "State: là 1 object chứa dữ liệu của 1 component. Chúng ta có thể thay đổi giá trị của state bất cứ khi nào chúng ta mong muốn.", isPre: false},
+    { data: "Props: là 1 object được truyền vào trong 1 component, và trong component đó chỉ có thể được đọc mà không thể thay đổi được các dữ liệu của props.", isPre: false},
+    { data: "State: là dữ liệu động chưa thông tin của component. Chúng ta có thể thay đổi giá trị của state khi nào chúng ta mong muốn.", isPre: false},
     ],
   },
   {
@@ -41,10 +41,15 @@ export const questionList = [
     ],
   },
   {
-    question: "Render và rerender",
+    question: "Render và Rerender",
     answer: [
-    { data: "Render: Là quá trình chạy lần đầu tiên của component khi ta fresh lại trang hoặc mới mở ứng dụng.", isPre: false},
-    { data: "Rerender: là quá trình mà component chạy lại khi prop, state thay đổi.", isPre: false},
+    { data: "Render: Render là quá trình mà React thực hiện để hiển thị các nội dung trên giao diện người dùng dựa trên props và state.", isPre: false},
+    { data: "Để hiển thị giao diện trên trình duyệt, tiến trình của React thông qua 2 giai đoạn chính:", isPre: false},
+    { data: "Giai đoạn Render: Giai đoạn này bao gồm các công việc liên quan đến khởi tạo hoặc tính toán thay đổi component trước khi hiển thị trên DOM. React sử dụng thuật toán React Fiber dựa trên cơ chế bất đồng bộ (asynchronous) để tính toán sự thay đổi.", isPre: false},
+    { data: "Giai đoạn Commit: Quá trình dựa trên cơ chế đồng bộ (synchronous) để thực hiện các thay đổi trên DOM.", isPre: false},
+    { data: "Khi React cập nhật DOM ở quá trình commit, nó đồng thời cập nhật toàn bộ các tham chiếu (refs) thích hợp để trỏ đến các DOM node hay các component đã được gọi.", isPre: false},
+    { data: "Tiếp theo nó mới chạy đồng bộ useLayoutEffect nếu có và cuối cùng React đặt một khoảng timeout ngắn, khi hết hạn, nó sẽ chạy toàn bộ useEffect nếu có", isPre: false},
+    { data: "Rerender: là lần render thứ hai và bất kỳ render tiếp theo cho đến khi component được unmount khỏi DOM khi state hoặc props thay đổi, component cha rerender, thay đổi url khi sử dụng router", isPre: false},
     ],
   },
   {

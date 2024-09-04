@@ -315,6 +315,48 @@ myInput.addEventListener('input', function() {
       {
         data: 'Rerender: là lần render thứ hai và bất kỳ render tiếp theo cho đến khi component được unmount khỏi DOM khi state hoặc props thay đổi, component cha rerender, thay đổi url khi sử dụng router',
         isPre: false
+      },
+      {
+        data: 'Trình tự: User tương tác với App. VD: Click vào một button => cập nhật state => cập nhật DOM => gọi cleanup useLayoutEffect=> gọi useLayoutEffect => render lại UI, UI được thay đổi trên màn hình(render trong return) => gọi cleanup useEffect => gọi useEffect',
+        isPre: false
+      },
+      {
+        data: `const App = () => {
+  const [count, setCount] = useState(0);
+
+  useLayoutEffect(() => {
+    if (count > 3) {
+      setCount(0);
+    }
+    return () => {
+    console.log('Cleanup layouteffect');
+    };
+  }, [count]);
+  
+  useEffect(() => {
+    console.log('useEffect called');
+    if (count > 3) {
+      setCount(0);
+    }
+    // nếu array depedency là rỗng thì cleanup chỉ được gọi khi component bị unmounted khỏi DOM
+    // còn nếu array depedency có giá trị thì console.log('Cleanup useeffect'); sẽ được gọi trước  console.log('useEffect called');
+    return () => {
+      console.log('Cleanup useeffect');
+    };
+  }, [count]);
+
+  const handleClick = () => {
+    setCount(count + 1);
+  }
+
+  return (
+  // khi tăng count lên 4 thì sẽ được render số 4 trước khi useEffect thực thi, 
+  // render xong thì useEffect thực thi để cập nhật lại count = 0 dẫn đến tình trạng nhấp nháy mặc dù không ảnh hưởng quá nhiều
+    <p>{count}</p>
+    <button onClick={handleClick}>Click me</button>
+  )
+}`,
+        isPre: true
       }
     ]
   },
@@ -1506,6 +1548,7 @@ export default function App() {
     }
     answer[0].classList.add('active')
   }
+
   return (
     <div className='App'>
       {questions.map((element, index) => {

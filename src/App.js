@@ -41,6 +41,113 @@ export const questionList = [
     ],
   },
   {
+    question: "Redux Thunk và Redux saga",
+    answer: [
+      {data: "Middleware để sử dụng để thao tác với các câu lệnh bất đồng bộ ở trong redux. Ví dụ gọi api, hoặc sử dụng các hàm setTimeout. Tất cả những việc đó được gọi chung là side effects"},
+      { data: `redux-thunk:
+export const actionGetUser = (users) => { //action
+  return {
+    type: Types.GET_USERS,
+    users
+  }
+}
+export const actionAddUser = (user) => { //action
+  return {
+    type: Types.ADD_USER,
+    user
+  }
+}
+export const getUsers = () => async dispatch => { // async thunk
+  const response = await axios.get('/users'); // call api
+  dispatch(actionGetUser(response)); sau đó mới dispatch 
+};
+export const createUsers = (info) => async dispatch => { // async thunk
+  const response = await axios.post('/users', info, { headers: {...}}); // call api
+  dispatch(actionAddUser(response)); sau đó mới dispatch 
+};
+su dung: dispatch(getUsers);
+su dung: dispatch(addUser({ name: '123', age: 16 }));
+`, isPre: true},
+    { data: "takeEvery() : thực thi và trả lại kết quả của mọi actions được gọi.", isPre: false},
+    { data: "takeLastest() : có nghĩa là nếu chúng ta thực hiện một loạt các actions, nó sẽ chỉ thực thi và trả lại kết quả của của actions cuối cùng.", isPre: false},
+    { data: "take() : tạm dừng cho đến khi nhận được action", isPre: false},
+    { data: "put() : dispatch một action", isPre: false},
+    { data: "call() bắn api", isPre: false},
+    { data: "tạo function với dấu *", isPre: false},
+    { data: `function* watchGetAllRecruit() {
+  try {
+    const result = yield call(async () => {
+      return await axios.get("https://fakestoreapi.com/products/category/jewelery")
+    });
+
+    if (result && result.success) {
+      yield put({ type: "GET_ALL_RECRUIT_SUCCESS", payload: result });
+    } else {
+      yield put({ type: "GET_ALL_RECRUIT_FAILURE" });
+    }
+  } catch (error) {
+    yield put({
+      type: "GET_ALL_RECRUIT_FAILURE",
+      payload: error.response.message,
+    });
+  }
+}
+
+function* Saga() {
+  yield takeLatest(GET_ALL_RECRUIT, watchGetAllRecruit); tạo action
+}
+export default Saga;
+//sử dụng dispatch({type: "GET_ALL_RECRUIT"})
+`, isPre: true}
+    ],
+  },
+  {
+    question: "Thao tác với DOM",
+    answer: [
+    { data: "Truy cập phần tử DOM: getElementById, getElementByClassName, getElementsByTagName", isPre: false},
+    { data: "Sửa đổi nội dung phần tử: element.innerHTML = content, nhiều phần tử thì element.innerHTML += content ", isPre: false},
+    { data: "Sự kiện và Xử lý sự kiện: add event listeners: element.addEventListener('click', cbfn)", isPre: false},
+    { data: "Thao tác với style: element.style.color = 'blue';", isPre: false},
+    { data: "Tạo và sửa đổi các thành phần: document.createElement('p'), newParagraph.textContent = 'This is a new paragraph.'; document.body.appendChild(newParagraph);", isPre: false},
+    { data: "Sửa đổi thuộc tính: element.attribute = '', vd: image.src = '123.jpg'", isPre: false},
+    { data: "Cập nhật form input value:", isPre: false},
+    { data: `const myInput = document.getElementById('myInput');
+myInput.addEventListener('input', function() {
+  document.getElementById('inputValue').textContent = myInput.value;
+});`, isPre: true},
+    { data: "Thao tác với DOM trước khi nó sẵn sàng: document.addEventListener('DOMContentLoaded', function() {});", isPre: false},
+    { data: 'Luôn kiểm tra xem một phần tử có tồn tại hay không trước khi thao tác với nó:', isPre: false},
+    { data: 'if (myElement) { //Thao tác vs DOM }', isPre: false}
+    ],
+  },
+  {
+    question: "GraphQL là gì",
+    answer: [
+      { data: "Vấn đề của resfulapis: Over fetching: Khi có 1 endpoint /api/blog/1 và request endpoint sẽ được trả về dữ liệu { title, des...}, nhưng ở client chỉ sử dụng một vài dữ liệu trong đó, còn lại thì không sử dụng. vd chỉ lấy tiltle thì bị dư thừa.", isPre: false},
+      { data: "Under fetching: một request không thể đủ thông tin, cần fetching thêm api khác để lấy thông tin, vd khi có 1 endpoint /api/blog/1 và request endpoint sẽ được trả về dữ liệu { title, des }, mà chúng ta cần thêm field categories, comments...(categories, comments là 2 bảng khác) sử dụng thì phải viết thêm endpoint hoặc phải yêu cầu và đợi phía backend làm xong mới thực hiện intergrate", isPre: false},
+      { data: "Là 1 ngôn ngữ truy vấn apis, deploy một endpoint duy nhất và client có thể quyết định việc lấy những dữ liệu nào cần thiết.", isPre: false},
+      { data: ` {
+  products { // chỉ lấy id và name
+    id,
+    name
+  }
+  products(id: 1) { // lấy product id là 1: chỉ lấy name
+    name
+  }
+  products(first: 2) { // 2 product đầu tiên
+    name
+  }
+  products(offset: 2) { // lấy product trang 2
+    name
+  }
+  products(limit: 2) { // chỉ lấy 2 product
+    name
+  }
+}
+        `, isPre: true}
+    ],
+  },
+  {
     question: "Render và Rerender",
     answer: [
     { data: "Render: Render là quá trình mà React thực hiện để hiển thị các nội dung trên giao diện người dùng dựa trên props và state.", isPre: false},

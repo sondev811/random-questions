@@ -643,18 +643,18 @@ myInput.addEventListener('input', function() {
         isPre: false
       },
       {
-        data: 'Em thành thạo các công cụ và công nghệ frontend như HTML, CSS, JavaScript, thư viện phổ biến như ReactJS, framework angular. Bên cạnh đó, em cũng có kinh nghiệm sử dụng Git để quản lý mã nguồn và làm việc nhóm hiệu quả. Em còn quen thuộc với Jira để quản lý dự án, theo dõi tiến độ công việc và đảm bảo dự án được hoàn thành đúng thời hạn.',
+        data: 'Cho đến nay e đã có hơn 1 năm kinh nghiệm ở vị trí frontend developer tại cty TMA solution và hơn 3 năm kinh nghiệm làm freelance.',
         isPre: false
       },
       {
-        data: 'Cho đến nay e đã có hơn 1 năm kinh nghiệm ở vị trí frontend developer tại cty TMA solution và hơn 3 năm kinh nghiệm làm freelance ở vị trí này.',
+        data: 'Em có kinh nghiệm trong việc phát triển giao diện người dùng, đặc biệt là sử dụng các công nghệ như HTML, CSS, JavaScript và React, Angular, NextJS. Bên cạnh đó, em cũng có kinh nghiệm sử dụng Git để quản lý mã nguồn và Jira để quản lý dự án, theo dõi tiến độ công việc và đảm bảo dự án được hoàn thành đúng thời hạn.',
         isPre: false
       },
       {
         data: 'Trong quá trình làm việc tại TMA Solutions, em đã có cơ hội làm việc với các thành viên trong team, hợp tác chặt chẽ với backend developers, UI/UX designers, và testers để hoàn thành dự án theo yêu cầu khách hàng.'
       },
       {
-        data: 'Về điểm mạnh thì đã từng làm qua môi trường làm việc nhóm ở công ty cũng như là làm freelancer nên e có là khả năng xử lý công việc độc lập mà không cần có quá nhiều sự hướng dẫn từ đồng nghiệp, cũng cũng như khả năng làm việc nhóm cần giao tiếp nhiều với đồng nghiệp, với khách hàng.',
+        data: 'Em đã từng làm qua môi trường làm việc nhóm ở công ty cũng như là làm freelancer nên e có là khả năng xử lý công việc độc lập mà không cần có quá nhiều sự hướng dẫn từ đồng nghiệp, cũng cũng như khả năng làm việc nhóm cần giao tiếp nhiều với đồng nghiệp, với khách hàng.',
         isPre: false
       },
       {

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import './styles.css'
 
 export const questionList = [
@@ -624,6 +624,114 @@ myInput.addEventListener('input', function() {
       {
         data: 'Modifier: cách thay đổi hiển thị của block or element. được quy ước bằng 2 dấu gạch giữa',
         isPre: false
+      }
+    ]
+  },
+  {
+    question: 'Clientside caching',
+    answer: [
+      { data: 'Có nhiều dạng client-side caching khác nhau nhưng phổ biến là Browser caching.', isPre: false },
+      {
+        data: 'Browser caching: Trình duyệt sẽ cache các nội dung tĩnh dựa trên HTTP headers, những truy cập sau này dữ liệu sẽ được lấy từ cache (local) thay vì tải lại từ server, một số HTTP response headers dùng để kiểm soát cache như.',
+        isPre: false
+      },
+      {
+        data: `Cache-Control, Expires, và ETag để quy định thời gian lưu trữ và cách cache được thực hiện trên client. Những headers này sẽ xác định:
+Bao lâu dữ liệu có thể được cache trước khi cần yêu cầu mới.
+Liệu dữ liệu đã cache có thể được sử dụng mà không cần xác thực lại với server.
+Khi nào dữ liệu cần được làm mới hoặc kiểm tra lại với server.`,
+        isPre: true
+      },
+      {
+        data: `Cache-Control: max-age=3600 cho phép client cache dữ liệu trong 1 giờ.
+Cache-Control: no-cache: yêu cầu server cung cấp dữ liệu mới hoặc Cache-Control: no-store yêu cầu client không cache dữ liệu hoặc luôn kiểm tra lại với server.
+
+ETag là một cơ chế giúp xác định phiên bản của tài nguyên. Server tạo ra một ETag cho mỗi tài nguyên và gửi nó trong response.
+Khi client yêu cầu tài nguyên lần đầu, nó sẽ nhận được cả nội dung tài nguyên và ETag. Lần sau, khi client yêu cầu lại tài nguyên này, nó sẽ gửi ETag cũ trong header If-None-Match để hỏi server xem tài nguyên đó có thay đổi không.
+
+Nếu tài nguyên không thay đổi:
+Server sẽ trả về HTTP 304 Not Modified mà không gửi lại toàn bộ nội dung tài nguyên.
+Điều này giúp giảm băng thông và tăng tốc độ tải.
+
+Nếu tài nguyên đã thay đổi:
+Server sẽ gửi lại tài nguyên mới cùng với ETag mới.
+
+Client có thể gửi ETag trong yêu cầu sau với header If-None-Match để hỏi server về tính hợp lệ của tài nguyên. Không thể thay đổi giá trị của Etag
+
+Expires là một header HTTP xác định thời gian hết hạn cụ thể (dưới dạng ngày tháng) của tài nguyên được cache.
+Nếu thời gian trên client vẫn còn trước thời điểm trong header Expires, client có thể sử dụng dữ liệu từ cache mà không cần hỏi server.
+Khi thời gian vượt qua giá trị Expires, client sẽ yêu cầu dữ liệu mới từ server.
+
+Chưa hết hạn nếu yêu cầu lại tài nguyên, trình duyệt sẽ kiểm tra cache và sử dụng dữ liệu nếu còn hợp lệ.
+`,
+        isPre: false
+      }
+    ]
+  },
+  {
+    question: 'CI/CD',
+    answer: [
+      {
+        data: 'CI là một phương pháp phát triển phần mềm tối ưu, mỗi khi có một thay đổi đối với code, sẽ có một server tự động build, chạy test để kiểm tra và đảm bảo không có lỗi nào xuất hiện trong quá trình phát triển.',
+        isPre: false
+      },
+      {
+        data: 'CD là một quá trình phát hành sản phẩm hoặc phần mềm, các thay đổi về code sẽ tự động được deploy tự động lên các server staging, production, cùng với việc chạy các bài test để đảm bạo độ chính xác.',
+        isPre: false
+      },
+      {
+        data: `Quá trình chạy 1 job trên CircleCI như sau:
+Khi code được merge vào một branch thì sẽ CircleCI sẽ tự động bắt được sự kiện này và chạy job tương ứng đã được config.
+CircleCI tạo một môi trường trên server của nó, pull docker images và run các steps để build code dựa theo các config của chúng ta.
+Sau khi chạy xong hết các step thì công việc của nó đã xong, có thể xem trạng thái thành công hay thất bại ở màn Dashboard.`,
+        isPre: false
+      },
+      {
+        data: 'Modifier: cách thay đổi hiển thị của block or element. được quy ước bằng 2 dấu gạch giữa',
+        isPre: false
+      }
+    ]
+  },
+  {
+    question: 'Reponsive web design and mobile first',
+    answer: [
+      {
+        data: '',
+        isPre: false
+      },
+      {
+        data: 'Bố cục linh hoạt: bao gồm cách thức xây dựng bố cục đơn giản nhưng linh hoạt, có thể resize chiều dài, nên sử dụng phần trăm, và đơn vị em (để tạo ra khoảng cách giữa các thành phần). TRÁNH sử dụng các đơn vị truyền thống như pixel hay inch',
+        isPre: false
+      },
+
+      {
+        data: 'Mobile First được coi là các tiêu chuẩn ưu tiên mặc định cho các thiết bị di động sau đó mới override các giá trị cho tablet, và sau cùng là desktop.',
+        isPre: false
+      },
+      {
+        data: `Mobile First trong Responsive: Để làm việc với mô hình này chúng ta sử dụng tham số min-width trong media query.
+/*Smart phone nhỏ*/
+@media screen and (min-width: 240px){
+    
+}
+/*Iphone(480 x 640)*/
+@media screen and (min-width: 320px){
+    
+}
+/*Tablet nhỏ(480 x 640)*/
+@media screen and (min-width: 480px){
+    
+}
+/*Ipad dọc(768 x 1024)*/
+@media screen and (min-width: 768px){
+    
+}
+/*Ipad ngang(1024 x 768)*/
+@media screen and (min-width: 1024px){
+  
+}
+`,
+        isPre: true
       }
     ]
   },
@@ -1549,8 +1657,21 @@ export default function App() {
     answer[0].classList.add('active')
   }
 
+  const [count, setCount] = useState(0)
+  const allRef = useRef(null)
+
+  useLayoutEffect(() => {
+    console.log(allRef.current, 'layout effect')
+  }, [count])
+
+  useEffect(() => {
+    console.log(allRef.current, 'useEffect')
+  }, [count])
+
   return (
-    <div className='App'>
+    <div className='App' ref={allRef}>
+      <button onClick={() => setCount(count + 1)}>setCount</button>
+      <p>{count}</p>
       {questions.map((element, index) => {
         return (
           <div key={index}>

@@ -628,6 +628,35 @@ myInput.addEventListener('input', function() {
     ]
   },
   {
+    question: 'Server side rendering, Static side generation, CSR',
+    answer: [
+      {
+        data: 'Statics side generation: HTML sẽ được generate tại thời gian build và được tái sử dụng cho mỗi request, ưu điểm tốc độ tải nhanh',
+        isPre: false
+      },
+      {
+        data: 'SSR: HTML sẽ được generate cho mỗi request(run time). Khi user gửi request thì nextjs sẽ tính toán và trả về html(getServerSideProps & getInitialProps)',
+        isPre: false
+      },
+      {
+        data: 'Tốc độ phụ thuộc server tính toán nhanh hay chậm nó sẽ ảnh hưởng đến việc user phải đợi nhanh hay chậm để lấy đc file HTML',
+        isPre: false
+      },
+      {
+        data: 'Client side rendering: Client sẽ làm nhiệm vụ render, client sẽ load các tài nguyên như JS, CSS, Image sau đó mới render ',
+        isPre: false
+      },
+      {
+        data: 'static generation + fetch data ở client side: Tạo những file raw sẵn còn phần dữ liệu (không cần fetch ở phía server) mà đợi những file raw load xong thì mới fetch dữ liệu động(dữ liệu không cần phải render sẵn bên phía server, k cần seo, private website)',
+        isPre: false
+      },
+      {
+        data: '',
+        isPre: false
+      }
+    ]
+  },
+  {
     question: 'Clientside caching',
     answer: [
       { data: 'Có nhiều dạng client-side caching khác nhau nhưng phổ biến là Browser caching.', isPre: false },
@@ -1438,7 +1467,7 @@ Object.values(obj) => [value]`,
         isPre: false
       },
       {
-        data: 'useTransition: trả về 1 mảng gồm 2ptu ptu 1 là biến kiểm tra xem react có đang can thiệp vào tiến trình render không, pt2 là 1 transition dùng để bọc 1 những cập nhật chưa cần phải update ngay',
+        data: 'useTransition: trả về 1 mảng gồm 2ptu ptu 1 là biến kiểm tra xem react có đang can thiệp vào tiến trình render không, pt2 là 1 transition dùng để bọc 1 những cập nhật chưa cần phải update ngay, tránh tình trạng block UI',
         isPre: false
       }
     ]
@@ -1633,6 +1662,80 @@ database.close(); //close database`,
       },
       {
         data: 'Code-splitting and Bundling:  Hỗ trợ thuật toán tách gói được tối ưu hóa được tạo bởi nhóm Google Chrome.',
+        isPre: false
+      }
+    ]
+  },
+  {
+    question: 'Cơ chế render nextjs > v13 và những thứ mới ở next > 13',
+    answer: [
+      {
+        data: 'v13 trở đi, nextjs sử dụng server component. Khi khai báo component thì mặc định component đó là server component',
+        isPre: false
+      },
+      {
+        data: 'Server component có nghĩa là toàn bộ data sẽ được render bên phía server. ở client React chỉ có nhiệm vụ render UI dựa file html mà nextjs trả về',
+        isPre: false
+      },
+      {
+        data: 'Trong thực tế thì đối với các action của user như cuộn chuột hay click thì bắt buộc phải xử lí ở client nên nextjs cung cấp client component để giải quyết',
+        isPre: false
+      },
+      {
+        data: 'Nhưng không phải khi sử dụng tag use client thì không có nghĩa rằng cả component sẽ client render mà trước khi đưa client render nextjs sẽ có 1 khái niệm pre-render',
+        isPre: false
+      },
+      {
+        data: 'pre-render: những phần nào render được trên server nextjs sẽ render trước(fetching data, khai báo biến). lúc này client sẽ nhận 1 file raw html(không phải là 1 file httml trắng tinh như cách csr) đã chứa phần code xử lý js đã chứa dữ liệu rồi, sau đó sẽ được hidrate(vd như cái hooks, các event sẽ được tưới lên html), lúc này người dùng sẽ được 1 file html có thể tương tác',
+        isPre: false
+      },
+      {
+        data: 'Về fetch data chúng ta xử dụng async component(đã bỏ getServerSideProps), sử dụng trực tiếp bên trong component',
+        isPre: false
+      },
+      {
+        data: 'Thao tác với form phải sử dụng server action để gửi dữ liệu lên server, tạo 1 file action gắn tag use server, sau đó tạo action function nhận dữ liệu',
+        isPre: false
+      }
+    ]
+  },
+  {
+    question: 'SEO',
+    answer: [
+      {
+        data: 'Sử dụng metadata, tăng trải nghiệm khi chia sẽ đường link của website qua các mạng xã hội',
+        isPre: false
+      },
+      {
+        data: 'Nguyên tắc sử dụng metadata trong nextjs: sử dụng trong layout.tsx hoặc page.tsx, sử dụng server component',
+        isPre: false
+      },
+      {
+        data: 'Thêm tiêu đề và miêu tả',
+        isPre: false
+      },
+      {
+        data: 'Thêm tiêu đề và hình ảnh khi share link lên mạng xã hội',
+        isPre: false
+      },
+      {
+        data: 'Tạo logo cho website',
+        isPre: false
+      },
+      {
+        data: 'Tạo url thân thiện cho việc tìm kiếm',
+        isPre: false
+      },
+      {
+        data: 'File hỗ trợ cho bot crawl: robot.txt, sitemap.xml, JSON-LD, manifest.json',
+        isPre: false
+      },
+      {
+        data: 'Tối ưu hoá hình ảnh, tối ưu hoá tốc độ load, website càng tối ưu => google đánh giá càng cao',
+        isPre: false
+      },
+      {
+        data: 'tối ưu hoá tốc độ load, website càng tối ưu => google đánh giá càng cao: Tối ưu hoá import: dùng gì thì chỉ import cái đó giúp giảm size của dự án giúp load nhanh hơn, xoá các dependencie không sử dụng, xoá các code không sử dụng',
         isPre: false
       }
     ]

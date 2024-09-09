@@ -649,7 +649,7 @@ const response = await fetch(http://localhost:3000/blogs?_page=${1}&_per_page=${
     cache: 'force-cache' // sẽ là SSG hoặc không khai báo cache thì mặc định là force-cache
 })
 `,
-        isPre: false
+        isPre: true
       },
       {
         data: `SSR là render trang web trên máy chủ mỗi khi có yêu cầu từ client. Máy chủ sẽ thực hiện các logic tính toán cần thiết như là lấy dữ liệu từ API hoặc db, sau đó trả về một trang HTML cho trình duyệt.
@@ -664,7 +664,8 @@ const response = await fetch('http://localhost:3000/blogs?_page=${1}&_per_page=$
     method: 'GET',
     cache: 'no-store' // sẽ là ssr
 })
-  `
+  `,
+        isPre: true
       },
       {
         data: `
@@ -678,7 +679,7 @@ const response = await fetch('http://localhost:3000/blogs?_page=${1}&_per_page=$
     }
 })
 `,
-        isPre: false
+        isPre: true
       },
       {
         data: 'Client side rendering: Client sẽ làm nhiệm vụ render, client sẽ load các tài nguyên như JS, CSS, Image sau đó mới render ',

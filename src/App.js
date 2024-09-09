@@ -631,15 +631,53 @@ myInput.addEventListener('input', function() {
     question: 'Server side rendering, Static side generation, CSR',
     answer: [
       {
-        data: 'Statics side generation: HTML sẽ được generate tại thời gian build và được tái sử dụng cho mỗi request, ưu điểm tốc độ tải nhanh',
+        data: `Statics side generation(getStaticProps version < 13): HTML sẽ được generate tại thời gian build và các trang HTML tĩnh này sẽ được lưu trữ sẵn trên máy chủ. Khi người dùng yêu cầu, máy chủ chỉ cần gửi trang HTML tĩnh mà không phải thực hiện thêm bất kỳ logic xử lý nào.
+Đặc điểm:
+  Các trang html được render một lần tại thời điểm build và không thay đổi cho tới lần build tiếp theo.
+  Tốc độ tải trang rất nhanh vì không cần xử lý ở phía server trong quá trình yêu cầu.
+  Ít tốn tài nguyên máy chủ vì các trang đã được xây dựng trước.
+  Sẽ hạn chế trong việc hiển thị dữ liệu động vì trang đã tĩnh sẵn từ lúc build.
+Trường hợp sử dụng: 
+Các trang có nội dung ít thay đổi hoặc không thay đổi theo người dùng(vd blog, tài liệu, danh mục sản phẩm)
+Tối ưu cho SEO vì các trang được kết xuất sẵn và có đầy đủ nội dung ngay từ lúc gửi tới trình duyệt.
+
+ISR cho phép bạn kết hợp tính năng của SSG và SSR bằng cách tái tạo một số trang tĩnh sau khi chúng đã được triển khai mà không cần rebuild lại toàn bộ ứng dụng. Điều này giúp trang có thể hiển thị dữ liệu mới mà không phải mất thời gian để build toàn bộ website khi có thay đổi nhỏ.
+Là quá trình revalidate data, nextjs sẽ build lại data
+
+const response = await fetch(http://localhost:3000/blogs?_page=${1}&_per_page=${10}', {
+    method: 'GET',
+    cache: 'force-cache' // sẽ là SSG hoặc không khai báo cache thì mặc định là force-cache
+})
+`,
         isPre: false
       },
       {
-        data: 'SSR: HTML sẽ được generate cho mỗi request(run time). Khi user gửi request thì nextjs sẽ tính toán và trả về html(getServerSideProps & getInitialProps)',
-        isPre: false
+        data: `SSR là render trang web trên máy chủ mỗi khi có yêu cầu từ client. Máy chủ sẽ thực hiện các logic tính toán cần thiết như là lấy dữ liệu từ API hoặc db, sau đó trả về một trang HTML cho trình duyệt.
+Đặc điểm:
+  Mỗi lần người dùng yêu cầu một trang, máy chủ sẽ chạy lại quá trình render.
+  SSR giúp cải thiện SEO vì trang được gửi tới người dùng đã có nội dung đầy đủ, không cần JavaScript chạy phía client mới hiển thị nội dung.
+  Thời gian tải trang ban đầu có thể chậm hơn so với SSG vì phải chờ máy chủ kết xuất nội dung mỗi lần.
+Trường hợp sử dụng:
+  Dữ liệu thay đổi thường xuyên và cần được tải mới mỗi khi người dùng truy cập.
+  Trang web yêu cầu dữ liệu động từ các nguồn khác nhau hoặc cần hiển thị thông tin tuỳ biến theo người dùng (ví dụ: thông tin đăng nhập, giỏ hàng).
+const response = await fetch('http://localhost:3000/blogs?_page=${1}&_per_page=${10}', {
+    method: 'GET',
+    cache: 'no-store' // sẽ là ssr
+})
+  `
       },
       {
-        data: 'Tốc độ phụ thuộc server tính toán nhanh hay chậm nó sẽ ảnh hưởng đến việc user phải đợi nhanh hay chậm để lấy đc file HTML',
+        data: `
+Khi nào nên chọn SSR hoặc SSG?
+SSR: Khi bạn cần hiển thị dữ liệu động theo thời gian thực hoặc cá nhân hóa trải nghiệm người dùng (ví dụ: ứng dụng thương mại điện tử, mạng xã hội).
+SSG: Khi trang web của bạn có nội dung ít thay đổi hoặc chỉ cập nhật theo một tần suất nhất định (ví dụ: trang tài liệu, blog).
+const response = await fetch('http://localhost:3000/blogs?_page=${1}&_per_page=${10}', {
+    method: 'GET',
+    next: {
+      revalidate: 60,  
+    }
+})
+`,
         isPre: false
       },
       {
@@ -648,10 +686,6 @@ myInput.addEventListener('input', function() {
       },
       {
         data: 'static generation + fetch data ở client side: Tạo những file raw sẵn còn phần dữ liệu (không cần fetch ở phía server) mà đợi những file raw load xong thì mới fetch dữ liệu động(dữ liệu không cần phải render sẵn bên phía server, k cần seo, private website)',
-        isPre: false
-      },
-      {
-        data: '',
         isPre: false
       }
     ]
@@ -725,11 +759,29 @@ Sau khi chạy xong hết các step thì công việc của nó đã xong, có t
     question: 'Reponsive web design and mobile first',
     answer: [
       {
-        data: '',
+        data: 'Responsive là kỹ thuật giúp website hiển thị tương thích với nhiều kích thước màn hình khác nhau',
         isPre: false
       },
       {
-        data: 'Bố cục linh hoạt: bao gồm cách thức xây dựng bố cục đơn giản nhưng linh hoạt, có thể resize chiều dài, nên sử dụng phần trăm, và đơn vị em (để tạo ra khoảng cách giữa các thành phần). TRÁNH sử dụng các đơn vị truyền thống như pixel hay inch',
+        data: `Nguyên tắc: 
+  Tối ưu trải nghiệm người dùng: hiển thì rõ ràng các thành phần(hình ảnh, cỡ chữ, nút bấm), ẩn hiện các thành phần phù hợp theo kích thước màn hình
+  Bố cục linh hoạt: bao gồm cách thức xây dựng bố cục đơn giản nhưng linh hoạt, có thể resize chiều dài, nên sử dụng phần trăm, và đơn vị em (để tạo ra khoảng cách giữa các thành phần). TRÁNH sử dụng các đơn vị truyền thống như pixel hay inch
+  `,
+        isPre: false
+      },
+      {
+        data: `Sử dụng media query:
+      keyword: not, or, and, only: ngoại trừ, hoặc và, chỉ
+      mediatype: print(máy in), screen: các loại màn hình, all: tất cả
+      and(media features), or(media features), not(media features)
+      media features có min-width, max-width với nhiều thuộc tính khác nhưng chủ yếu sd 2 feature đó
+      max-width: 1024px: màn hình <= 1024 sẽ apply
+      min-width: 320px: màn hình >= 320 sẽ apply
+      vd: @media only screen and (max-width: 240px) {
+      }
+      @media screen and (min-width: 240px) {
+      }
+        `,
         isPre: false
       },
 

@@ -765,10 +765,27 @@ Sau khi chạy xong hết các step thì công việc của nó đã xong, có t
       },
       {
         data: `Nguyên tắc: 
-  Tối ưu trải nghiệm người dùng: hiển thì rõ ràng các thành phần(hình ảnh, cỡ chữ, nút bấm), ẩn hiện các thành phần phù hợp theo kích thước màn hình
-  Bố cục linh hoạt: bao gồm cách thức xây dựng bố cục đơn giản nhưng linh hoạt, có thể resize chiều dài, nên sử dụng phần trăm, và đơn vị em (để tạo ra khoảng cách giữa các thành phần). TRÁNH sử dụng các đơn vị truyền thống như pixel hay inch
+  - Bố cục linh hoạt: bao gồm cách thức xây dựng bố cục đơn giản nhưng linh hoạt, có thể resize chiều dài, nên sử dụng phần trăm, và đơn vị em (để tạo ra khoảng cách giữa các thành phần). TRÁNH sử dụng các đơn vị truyền thống như pixel hay inch
+        Flexbox và CSS Grid là những công cụ hữu ích để tạo các layout linh hoạt. Chúng giúp phân phối không gian và căn chỉnh nội dung trên các kích thước màn hình khác nhau.
+  - Sử Dụng Media Queries: áp dụng các kiểu CSS khác nhau tùy theo kích thước màn hình, độ phân giải, hoặc các đặc tính khác của thiết bị.
+  - Tối ưu trải nghiệm người dùng: hiển thì rõ ràng các thành phần(hình ảnh, cỡ chữ, nút bấm), ẩn hiện các thành phần phù hợp theo kích thước màn hình
+  - Thiết Kế Dựa Trên Mobile-First: tiêu chuẩn ưu tiên mặc định cho các thiết bị di động sau đó mới override các giá trị cho tablet, và sau cùng là desktop.
+  - Kích Thước Hình Ảnh và Video Linh Hoạt: set CSS như max-width: 100% để hình ảnh và video có thể co dãn theo kích thước của khung chứa.
   `,
-        isPre: false
+        isPre: true
+      },
+      {
+        data: `Kỹ thuật tối ưu hoá: 
+  - Tối ưu hoá hình ảnh: 
+  - Cải thiện thời gian tải trang:
+    - Sử dụng cdn để phân phối tài nguyên 
+    - Caching dữ liệu
+  - Tối ưu hoá quá trình render: 
+    - Sử dụng lazy load
+    - Tối ưu hoá import: dùng gì thì chỉ import cái đó giúp giảm size của dự án giúp load nhanh hơn, xoá các dependencie không sử dụng, xoá các code không sử dụng
+  - Sử Dụng Công Cụ Phân Tích: Công cụ như Google PageSpeed Insights hoặc Lighthouse giúp phân tích hiệu suất và đưa ra các gợi ý tối ưu hóa.
+    `,
+        isPre: true
       },
       {
         data: `Sử dụng media query:
@@ -783,11 +800,6 @@ Sau khi chạy xong hết các step thì công việc của nó đã xong, có t
       @media screen and (min-width: 240px) {
       }
         `,
-        isPre: false
-      },
-
-      {
-        data: 'Mobile First được coi là các tiêu chuẩn ưu tiên mặc định cho các thiết bị di động sau đó mới override các giá trị cho tablet, và sau cùng là desktop.',
         isPre: false
       },
       {
@@ -813,6 +825,44 @@ Sau khi chạy xong hết các step thì công việc của nó đã xong, có t
   
 }
 `,
+        isPre: true
+      }
+    ]
+  },
+  {
+    question: 'ưu nhược điểm của typescript',
+    answer: [
+      {
+        data: `
+Chức năng từng sài:
+  Khai báo kiểu dữ liệu cho biến, state, tham số truyền vào hàm giá trị trả về của hàm
+  Union Types(một biến, tham số truyền vào có thể có nhiều kiểu dữ liệu) const a: number | undefined = undefined;
+  Interface hoặc type giúp mô tả rõ ràng các thuộc tính và phương thức mà đối tượng cần có.
+  interface có thể kế thừa từ 1 interface khác
+  interface A { name: string | number, func: (arr: number) => number;}
+  Enums,
+  Generic function:
+  const getTuple: <T, U>( a: T, b: U ) => [ T, U ] = ( a, b ) => {
+    return [ a, b ];
+  }
+  interface P { name: string }
+  const arr: P[] = [];
+  arr.push( { name: 'John' } ); // ok
+
+  let stringArray = getTuple<number, string>( 1, 'world' );
+
+  Generic Interface
+  interface ApiResponse<DataType> {
+    data: DataType,
+    status: number,
+    message: string,
+  }
+
+  const data: ApiResponse<{ name: string }> = { data: { name: 'John' } };
+
+  Ưu điểm: giúp phát hiện lỗi liên quan đến kiểu ngay khi lập trình, thay vì đợi đến khi chạy ứng dụng.
+  Tích hợp tốt với các IDE như VS Code, cung cấp các tính năng như tự động hoàn thành code, gợi ý kiểu dữ liệu đối với object
+        `,
         isPre: true
       }
     ]
@@ -857,6 +907,14 @@ Sau khi chạy xong hết các step thì công việc của nó đã xong, có t
       },
       {
         data: 'Với niềm đam mê trong việc phát triển các sản phẩm chất lượng cao, em mong muốn có cơ hội được làm việc và phát triển lâu dài tại Quý công ty, nơi em có thể tiếp tục phát huy những kinh nghiệm đã có và học hỏi thêm nhiều kỹ năng mới. Em xin cảm ơn ạ.',
+        isPre: false
+      },
+      {
+        data: `Câu hỏi.
+  Trong job description thì e không thấy nhắc đến chính sách tăng lương, Công ty có chính sách tăng lương và thưởng hay phụ cấp cho nhân viên không ạ?
+  Vậy tiêu chí đánh giá, thời gian và phương thức tăng lương như nào ạ
+  Về việc OT thì bên công ty có để nhân viên OT và nếu có thì có lương OT không ạ, e thì không ngại việc OT
+        `,
         isPre: false
       }
     ]
@@ -1753,10 +1811,11 @@ database.close(); //close database`,
     ]
   },
   {
-    question: 'SEO',
+    question:
+      'SEO: là quá trình tối ưu hóa trang web để cải thiện vị trí của nó trong kết quả tìm kiếm của các công cụ tìm kiếm như Google.',
     answer: [
       {
-        data: 'Sử dụng metadata, tăng trải nghiệm khi chia sẽ đường link của website qua các mạng xã hội',
+        data: 'Tối ưu hoá metadata, tăng trải nghiệm khi chia sẽ đường link của website qua các mạng xã hội',
         isPre: false
       },
       {
@@ -1768,10 +1827,6 @@ database.close(); //close database`,
         isPre: false
       },
       {
-        data: 'Thêm tiêu đề và hình ảnh khi share link lên mạng xã hội',
-        isPre: false
-      },
-      {
         data: 'Tạo logo cho website',
         isPre: false
       },
@@ -1780,16 +1835,23 @@ database.close(); //close database`,
         isPre: false
       },
       {
+        data: 'tối ưu hoá tốc độ load, website càng tối ưu => google đánh giá càng cao: Tối ưu hoá import: dùng gì thì chỉ import cái đó giúp giảm size của dự án giúp load nhanh hơn, xoá các dependencie không sử dụng, xoá các code không sử dụng',
+        isPre: false
+      },
+      {
+        data: `Tối ưu hoá keyword: đảm bảo từ khóa xuất hiện trong tiêu đề, mô tả meta
+        Tối Ưu Hóa Nội Dung: Tạo nội dung chất lượng, dễ đọc, nội dung dài hơn thường có cơ hội xếp hạng cao hơn
+        Tối ưu hoá hình ảnh: cung cấp alt cho hình ảnh, tối ưu hoá kích thước ảnh để cải thiện tốc độ tải, nên sử dụng định dang webp
+        `,
+        isPre: true
+      },
+
+      {
         data: 'File hỗ trợ cho bot crawl: robot.txt, sitemap.xml, JSON-LD, manifest.json',
         isPre: false
       },
       {
-        data: 'Tối ưu hoá hình ảnh, tối ưu hoá tốc độ load, website càng tối ưu => google đánh giá càng cao',
-        isPre: false
-      },
-      {
-        data: 'tối ưu hoá tốc độ load, website càng tối ưu => google đánh giá càng cao: Tối ưu hoá import: dùng gì thì chỉ import cái đó giúp giảm size của dự án giúp load nhanh hơn, xoá các dependencie không sử dụng, xoá các code không sử dụng',
-        isPre: false
+        data: 'Công cụ hỗ trợ: Google Analytics Theo dõi hiệu suất trang web và hành vi của người dùng.'
       }
     ]
   }

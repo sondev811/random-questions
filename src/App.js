@@ -1090,7 +1090,7 @@ const { mutate: mutateUpdate } = useMutation({
         isPre: false
       },
       {
-        data: 'Các kiểu dữ liệu trong JS: Number, string, object, array, null, undefined, boolean',
+        data: 'Các kiểu dữ liệu trong JS: Number, string, object, null, undefined, boolean, bigint, symbol',
         isPre: false
       },
       {

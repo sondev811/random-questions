@@ -868,6 +868,35 @@ Chức năng từng sài:
     ]
   },
   {
+    question: 'scrum',
+    answer: [
+      {
+        data: `Quy trình gồm 4 bước [planning, build, test, review] => quy trình sẽ được lặp đi lặp lại, mỗi vòng được gọi là sprint(kéo dài 2 tuần) `,
+        isPre: false
+      },
+      {
+        data: `PO sẽ cung cấp backlog`,
+        isPre: false
+      },
+      {
+        data: `Mỗi cuối thứ 6 của tuần đầu tiên trong sprint sẽ tổ chức sprint planning để estimate task theo story point`,
+        isPre: false
+      },
+      {
+        data: `Daily standup: report về hqua làm gì, hnay làm gì, mình có gì khúc mắc hay cần support hay không, có gì không thể làm được hay không`,
+        isPre: false
+      },
+      {
+        data: `Story point: tính một task bao nhiêu story point(1 story point = 4h => 4 st sẽ tốn 2 ngày để làm), estimate theo story point`,
+        isPre: false
+      },
+      {
+        data: `Sprint review: demo cho PO những thứ đã làm ở sprint`,
+        isPre: false
+      }
+    ]
+  },
+  {
     question: 'Giới thiệu bản thân',
     answer: [
       {

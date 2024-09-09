@@ -871,7 +871,7 @@ Chức năng từng sài:
     question: 'Giới thiệu bản thân',
     answer: [
       {
-        data: 'Em chào các anh chị. Lời đầu tiên em xin cảm ơn các anh chị cùng Quý công ty đã tổ chức buổi phỏng vấn này, để hôm nay em có thể thể hiện được năng lực của bản thân cũng như nguyện vọng ứng tuyển vào vị trí Frondend developer.',
+        data: 'Em chào các anh chị. Lời đầu tiên em xin cảm ơn các anh chị cùng Quý công ty đã tổ chức buổi phỏng vấn này, để hôm nay em có thể thể hiện được năng lực của bản thân cũng như nguyện vọng ứng tuyển vào vị trí Frondend developer của công ty.',
         isPre: false
       },
       {
@@ -883,11 +883,11 @@ Chức năng từng sài:
         isPre: false
       },
       {
-        data: 'Cho đến nay e đã có hơn 1 năm kinh nghiệm ở vị trí frontend developer tại cty TMA solution và hơn 3 năm kinh nghiệm làm freelance.',
+        data: 'Cho đến nay e đã có hơn 4 năm kinh nghiệm phát triển frontend trong đó hơn 1 năm tại cty TMA solution và hơn 3 làm việc như một lập trình viên freelance.',
         isPre: false
       },
       {
-        data: 'Em có kinh nghiệm trong việc phát triển giao diện người dùng, đặc biệt là sử dụng các công nghệ như HTML, CSS, JavaScript và React, Angular, NextJS. Bên cạnh đó, em cũng có kinh nghiệm sử dụng Git để quản lý mã nguồn và Jira để quản lý dự án, theo dõi tiến độ công việc và đảm bảo dự án được hoàn thành đúng thời hạn.',
+        data: 'Em có kinh nghiệm trong việc phát triển giao diện người dùng sử dụng các công nghệ như HTML, CSS, JavaScript, React và NextJS. Bên cạnh đó, em cũng có kinh nghiệm sử dụng Git để quản lý mã nguồn và Jira để quản lý dự án, theo dõi tiến độ công việc và đảm bảo dự án được hoàn thành đúng thời hạn.',
         isPre: false
       },
       {
@@ -902,7 +902,7 @@ Chức năng từng sài:
         isPre: false
       },
       {
-        data: 'Về điểm yếu em nhận thấy mình còn chưa tự tin khi thuyết trình trước đám đông nhưng e vẫn đang thường xuyên thực hành để cải thiện khả năng này. Em tin rằng mình đang tiến bộ và sẽ sớm khắc phục được điểm yếu này.',
+        data: 'Về điểm yếu em thấy mình còn khá rụt rè, chưa đủ tự tin khi thuyết trình trước đám đông nhưng e vẫn đang thường xuyên thực hành để cải thiện khả năng này. Em tin rằng mình đang tiến bộ và sẽ sớm khắc phục được điểm yếu này.',
         isPre: false
       },
       {

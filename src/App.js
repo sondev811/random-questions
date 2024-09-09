@@ -920,7 +920,7 @@ Chức năng từng sài:
         isPre: false
       },
       {
-        data: 'Trong quá trình làm việc tại TMA Solutions, em đã có cơ hội làm việc với các thành viên trong team, hợp tác chặt chẽ với backend developers, UI/UX designers, và testers để hoàn thành dự án theo yêu cầu khách hàng.'
+        data: 'Trong quá trình làm việc tại TMA Solutions, em đã có cơ hội tham gia vào và dự án và làm việc với các thành viên trong team, hợp tác chặt chẽ với backend developers, UI/UX designers, và testers để hoàn thành dự án theo yêu cầu khách hàng.'
       },
       {
         data: 'Em đã từng làm qua môi trường làm việc nhóm ở công ty cũng như là làm freelancer nên e có là khả năng xử lý công việc độc lập mà không cần có quá nhiều sự hướng dẫn từ đồng nghiệp, cũng cũng như khả năng làm việc nhóm cần giao tiếp nhiều với đồng nghiệp, với khách hàng.',

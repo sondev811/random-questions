@@ -943,6 +943,9 @@ Chức năng từng sài:
   Trong job description thì e không thấy nhắc đến chính sách tăng lương, Công ty có chính sách tăng lương và thưởng hay phụ cấp cho nhân viên không ạ?
   Vậy tiêu chí đánh giá, thời gian và phương thức tăng lương như nào ạ
   Về việc OT thì bên công ty có để nhân viên OT và nếu có thì có lương OT không ạ, e thì không ngại việc OT
+  Biết gì về công ty: Như e tìm hiểu ở website của công ty thì e biết được cty mình là công ty hàng đầu trong lĩnh vực kinh 
+  doanh các loại nước uống chất lương cao, có các loại đồ uống kiềm chứa nhiều chất chống oxy hóa mạnh, khoáng chất có lợi an toàn cho sức khoẻ của khách hàng.
+  Ngoài ra e còn thấy công ty có sản phẩm cà phê cao cấp được sản xuất tại việt nam, chuỗi cửa hàng kinh doanh cà phê hữu cơ chất lượng cao đạt tiêu chuẩn USDA.
         `,
         isPre: false
       }
